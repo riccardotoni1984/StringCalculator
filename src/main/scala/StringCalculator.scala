@@ -1,6 +1,8 @@
 object StringCalculator {
-  def calculate(value: String):Int = {
-    value.toInt
+  
+  def calculate(inputString: String):Int = {
+    inputString.toInt
   }
 
 }
+
