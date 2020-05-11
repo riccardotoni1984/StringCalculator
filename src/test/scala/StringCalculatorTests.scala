@@ -15,4 +15,8 @@ class StringCalculatorTests extends FlatSpec{
   it should "return sum also if string contains newLines as separators for numbers" in{
     assert(StringCalculator.calculate("1,2\n3") == 6)
   }
+
+  it should "return sum only of positive numbers" in{
+    assert(StringCalculator.calculate("-1,1,2\n3") == 6)
+  }
 }
