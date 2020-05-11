@@ -1,18 +1,28 @@
 object StringCalculator {
   
   def calculate(inputString: String):Int = {
-    val regexToGetAllNegativeNumbers = """-\d+""".r
-    val regexToGetAllNumbers = """\d+""".r
-    val negativeNumberList = regexToGetAllNegativeNumbers.
-      findAllIn(inputString).toList
-    val numberList = regexToGetAllNumbers.
-      findAllIn(inputString).toList
+    val negativeNumbersList = extractAllNegativeNumbers(inputString)
+    val allNumbersConvertedToPositiveList = extractAndConverteAllNumbersToPositive(inputString)
 
-    (numberList ::: negativeNumberList).
-      map(x => x.toInt).
+    (allNumbersConvertedToPositiveList ::: negativeNumbersList).
       filter(x => (x < 1000)).
       sum
   }
 
+  private def extractAndConverteAllNumbersToPositive(inputString: String):List[Int] = {
+    val regex = """\d+""".r
+    regex.
+      findAllIn(inputString).
+      toList.
+      map(x => x.toInt)
+  }
+
+  private def extractAllNegativeNumbers(inputString: String):List[Int] = {
+    val regex = """-\d+""".r
+    regex.
+      findAllIn(inputString).
+      toList.
+      map(x => x.toInt)
+  }
 }
 
