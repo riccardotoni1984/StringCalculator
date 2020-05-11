@@ -11,4 +11,8 @@ class StringCalculatorTests extends FlatSpec{
   it should "return sum if string contains several comma-separeted numbers" in{
     assert(StringCalculator.calculate("1,2,3") == 6)
   }
+
+  it should "return sum also if string contains newLines as separators for numbers" in{
+    assert(StringCalculator.calculate("1,2\n3") == 6)
+  }
 }
