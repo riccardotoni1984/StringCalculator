@@ -1,7 +1,10 @@
 object StringCalculator {
   
   def calculate(inputString: String):Int = {
-    inputString.toInt
+    val numberList = inputString.split(",")
+    numberList.
+      map(x => x.toInt).
+      sum
   }
 
 }
