@@ -19,4 +19,8 @@ class StringCalculatorTests extends FlatSpec{
   it should "return sum only of positive numbers" in{
     assert(StringCalculator.calculate("-1,1,2\n3") == 6)
   }
+
+  it should "return sum only of numbers smaller than 1000" in{
+    assert(StringCalculator.calculate("1200,-1,1,2\n3") == 6)
+  }
 }
